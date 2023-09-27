@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import './App.css'
 import AccordionSection from './Components/AccordionSection'
 
@@ -29,10 +29,16 @@ function App() {
   ]
 
   return (
-    <div className="main-container">
-      <div>
+    <div className="body-container">
+      <div className="main-container">
         {accordionArr.map((item) => {
-          return <AccordionSection title={item.title} subText={item.subText} id={item.id} />
+          return (
+            <Fragment key={item.id}>
+              <AccordionSection title={item.title}
+              subText={item.subText}
+              id={item.id} />
+            </Fragment>
+          )
         })}
       </div>
     </div>
